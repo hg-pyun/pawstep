@@ -1,8 +1,7 @@
 import * as React from 'react';
 import * as Chart from 'chart.js';
 import { useEffect, useRef } from 'react';
-import { ISequenceChartData } from '../common/types';
-import { ChartData } from 'chart.js';
+import { ISequenceChartData } from '../commons/types';
 
 type SequenceChart = {
   data: Array<ISequenceChartData>;
