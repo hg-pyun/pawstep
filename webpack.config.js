@@ -22,7 +22,7 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: {
-              additionalData: '@import "src/assets/global.scss";',
+              additionalData: '@import "client/assets/global.scss";',
             },
           },
         ],

@@ -1,0 +1,36 @@
+.wrap {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+  position: fixed;
+  bottom: 0;
+  height: 60px;
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.08);
+  box-sizing: content-box;
+  background-color: white;
+}
+
+.item_button {
+  display: flex;
+  align-items: center;
+  height: 100%;
+
+  &.on {
+    border-bottom: 4px solid #2380EC;
+
+    button {
+      position: relative;
+      top: 2px;
+    };
+  }
+
+  button {
+    display: flex;
+    justify-content: center;
+    border: none;
+    background: white;
+    outline: none;
+  }
+}

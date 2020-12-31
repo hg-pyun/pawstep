@@ -1,0 +1,21 @@
+.wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  line-height: 60px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.profile {
+  position: absolute;
+  display: flex;
+  right: 32px;
+  img {
+    border-radius: 50%;
+  }
+}
