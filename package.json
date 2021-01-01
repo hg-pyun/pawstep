@@ -1,8 +1,9 @@
 {
   "scripts": {
-    "dev": "webpack serve",
-    "build:dev": "webpack --mode development",
-    "build:prod": "webpack --mode production"
+    "dev": "cross-env NODE_ENV=development  webpack serve --mode development",
+    "build:dev": "cross-env NODE_ENV=development webpack --mode development",
+    "build:prod": "cross-env NODE_ENV=production webpack --mode production",
+    "deploy": "npm run build:prod && gh-pages -d dist"
   },
   "devDependencies": {
     "@hot-loader/react-dom": "^17.0.1",
@@ -10,10 +11,14 @@
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@types/react-router-dom": "^5.1.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "cross-env": "^7.0.3",
     "css-loader": "^5.0.1",
+    "gh-pages": "^3.1.0",
     "html-webpack-plugin": "^4.5.0",
     "husky": "^4.3.6",
     "lint-staged": "^10.5.3",
+    "mini-css-extract-plugin": "^1.3.3",
     "prettier": "2.2.1",
     "react-hot-loader": "^4.13.0",
     "sass": "^1.30.0",
