@@ -1,0 +1,46 @@
+.record_list {
+  padding: 14px 24px;
+  ul {
+    padding: 0;
+    list-style: none;
+
+    li {
+      padding: 14px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #C4C4C4;
+      font-weight: 500;
+      font-size: 11px;
+
+
+      .date {
+        width: 20%;
+      }
+
+      .blood_sugar_level {
+        text-align: right;
+        width: 20%;
+        strong {
+          font-size: 16px;
+          color: $primaryColor;
+        }
+      }
+
+      .icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 70px;
+      }
+
+      .icon_name {
+        width: 20%;
+      }
+
+      .value {
+        width: 20%;
+      }
+    }
+  }
+}

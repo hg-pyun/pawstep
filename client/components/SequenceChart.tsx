@@ -1,23 +1,34 @@
 import * as React from 'react';
 import Chart from 'chart.js';
 import { useEffect, useRef } from 'react';
-import { ISequenceChartData } from '../types/types';
+import { Record, SequenceChartData } from '../types/types';
 
 type SequenceChart = {
-  data: Array<ISequenceChartData>;
+  data: Array<Record>;
 };
 
 function SequenceChart(props: SequenceChart) {
   const { data = [] } = props;
   const ctx = useRef(null);
 
+  const mapToChartData = (recordData: Array<Record>) => {
+    return recordData.map((item) => {
+      return {
+        x: item.date,
+        y: item.value,
+      };
+    });
+  };
+
   useEffect(() => {
     const myChart = new Chart(ctx.current, {
       type: 'line',
       data: {
-        datasets: [{
-          data: data,
-        }]
+        datasets: [
+          {
+            data: mapToChartData(data),
+          },
+        ],
       },
       options: {
         scales: {
@@ -28,8 +39,8 @@ function SequenceChart(props: SequenceChart) {
               time: {
                 unit: 'hour',
                 displayFormats: {
-                  quarter: 'HH'
-                }
+                  quarter: 'HH',
+                },
               },
             },
           ],

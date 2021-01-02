@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "cross-env NODE_ENV=development  webpack serve --mode development",
+    "dev": "cross-env NODE_ENV=development webpack serve --mode development",
     "build:dev": "cross-env NODE_ENV=development webpack --mode development",
     "build:prod": "cross-env NODE_ENV=production webpack --mode production",
     "deploy": "npm run build:prod && gh-pages -d dist"
@@ -33,6 +33,7 @@
   "dependencies": {
     "chart.js": "^2.9.4",
     "core-js": "^3.8.1",
+    "dayjs": "^1.9.8",
     "normalize.css": "^8.0.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
