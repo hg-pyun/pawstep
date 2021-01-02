@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  height: 30px;
+  padding: 0 30px;
+  margin-top: 10px;
+  margin-bottom: 40px;
+
+  div {
+    font-size: 12px;
+    color: #6f6d6d;
+    font-weight: 600;
+  }
+
+  .item {
+    margin-right: 20px;
+
+    .second_row {
+      margin-top: 5px;
+      font-size: 22px;
+    }
+  }
+}
