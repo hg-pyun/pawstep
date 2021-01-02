@@ -27,13 +27,23 @@ function SequenceChart(props: SequenceChart) {
         datasets: [
           {
             data: mapToChartData(data),
+            backgroundColor: 'rgba(0, 0, 0, 0)',
+            borderColor: '#4FCFEC',
+            pointRadius: 5,
+            pointBackgroundColor: '#4FCFEC',
           },
         ],
       },
       options: {
+        legend: {
+          display: false,
+        },
         scales: {
           xAxes: [
             {
+              gridLines: {
+                display: false,
+              },
               type: 'time',
               distribution: 'series',
               time: {
@@ -58,7 +68,7 @@ function SequenceChart(props: SequenceChart) {
 
   return (
     <div>
-      <canvas ref={ctx} id="myChart" width="400" height="400" />
+      <canvas ref={ctx} id="myChart" width="300" height="300" />
     </div>
   );
 }
