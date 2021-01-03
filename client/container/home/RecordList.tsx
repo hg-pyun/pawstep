@@ -5,6 +5,7 @@ import IconFood from '../../components/icon/IconFood';
 import { Record, RecordType } from '../../types/types';
 import IconWalk from '../../components/icon/IconWalk';
 import dayjs from 'dayjs';
+import { getTextColorClass } from '../../commons/utility';
 
 type RecordList = {
   data: Array<Record>;
@@ -40,7 +41,7 @@ function RecordList(props: RecordList) {
       <li key={index}>
         <div className={styles.date}>{dayjs(item.date).format('DD일 HH:mm')}</div>
         <div className={styles.blood_sugar_level}>
-          <strong className={styles.emphasis}>{item.value}</strong> mg/dl
+          <strong className={getTextColorClass(item.value)}>{item.value}</strong> mg/dl
         </div>
         <div className={styles.icon}>{getIconFromRecordType(item.type)}</div>
         <div className={styles.icon_name}>{getIconTextFromRecordType(item.type)}</div>

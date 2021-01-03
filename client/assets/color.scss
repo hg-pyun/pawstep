@@ -1,0 +1,26 @@
+$primaryColor: #72dfac;
+$primaryColorHover: #4bd090;
+
+$secondaryColor: #c4c4c4;
+$secondaryColorHover: #e5e5e5;
+
+$dangerColor: #ff4d37;
+$warningColor: #ffb21e;
+
+:global {
+  .primary_color {
+    color: $primaryColor !important;
+  }
+
+  .secondary_color {
+    color: $secondaryColor !important;
+  }
+
+  .danger_color {
+    color: $dangerColor !important;
+  }
+
+  .warning_color {
+    color: $warningColor !important;
+  }
+}

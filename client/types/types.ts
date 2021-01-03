@@ -15,3 +15,10 @@ export interface SequenceChartData {
   x: Date;
   y: number;
 }
+
+export enum ColorType {
+  Primary = 'primary',
+  Secondary = 'secondary',
+  Danger = 'danger',
+  Warning = 'warning',
+}

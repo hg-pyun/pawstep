@@ -23,7 +23,14 @@ function makeConfig(mode) {
           test: /\.s[ac]ss$/i,
           use: [
             mode !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
-            'css-loader',
+            {
+              loader: 'css-loader',
+              options: {
+                modules: {
+                  localIdentName: mode === 'development' ? '[path][name]__[local]' : '[contenthash]',
+                },
+              },
+            },
             {
               loader: 'sass-loader',
               options: {

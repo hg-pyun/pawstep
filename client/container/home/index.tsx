@@ -24,7 +24,7 @@ function Home(props: Home) {
     { date: new Date('2021-01-01 20:40:32'), value: 190, type: RecordType.Medicine, text: '메모' },
     { date: new Date('2021-01-02 01:30:32'), value: 250, type: RecordType.Medicine, text: '메모' },
     { date: new Date('2021-01-02 03:30:32'), value: 210, type: RecordType.Medicine, text: '메모' },
-    { date: new Date('2021-01-02 06:30:32'), value: 180, type: RecordType.Medicine, text: '메모' },
+    { date: new Date('2021-01-02 06:30:32'), value: 300, type: RecordType.Medicine, text: '메모' },
   ];
 
   return (
@@ -33,11 +33,6 @@ function Home(props: Home) {
       <RecentlyIndicator data={dummyData} />
       <SequenceChart data={dummyData} />
       <RecordList data={dummyData} />
-      <div className={styles.bottom_area}>
-        <div className={styles.record}>
-          <CommonButton>+ 기록하기</CommonButton>
-        </div>
-      </div>
       <RecordInput />
       <Navigator />
     </div>
