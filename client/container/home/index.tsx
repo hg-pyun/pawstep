@@ -1,11 +1,9 @@
 import * as React from 'react';
 import styles from './index.module.scss';
 import SequenceChart from '../../components/SequenceChart';
-import { Record, RecordType, SequenceChartData } from '../../types/types';
+import { Record, RecordType } from '../../types/types';
 import Header from '../../components/Header';
 import Navigator from '../../components/Navigator';
-import CommonButton from '../../components/CommonButton';
-import RecordInput from './RecordInput';
 import RecordList from './RecordList';
 import RecentlyIndicator from './RecentlyIndicator';
 
@@ -33,7 +31,6 @@ function Home(props: Home) {
       <RecentlyIndicator data={dummyData} />
       <SequenceChart data={dummyData} />
       <RecordList data={dummyData} />
-      <RecordInput />
       <Navigator />
     </div>
   );
