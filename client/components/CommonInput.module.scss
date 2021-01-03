@@ -1,0 +1,45 @@
+.input_box {
+  font-size: 15px;
+  line-height: 36px;
+  border-radius: 3px;
+
+  border-bottom: 1px solid black;
+
+  &.focus {
+    transition: border 0.5s;
+    border-bottom: 1px solid $primaryColor;
+    background-color: white;
+  }
+
+  input {
+    width: 100%;
+    font-size: inherit;
+    line-height: inherit;
+    border: none;
+    background: none;
+    display: block;
+    resize: none;
+    padding: 0;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      color: #ababab;
+    }
+  }
+}
+
+label {
+  display: inline-block;
+  color: black;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 4px;
+
+  &.required:after {
+    content:" *";
+    color: red;
+  }
+}
