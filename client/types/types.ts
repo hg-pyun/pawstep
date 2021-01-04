@@ -1,14 +1,15 @@
 export interface Record {
   date: Date;
   value: number;
-  type: RecordType;
-  text: string;
+  optionType: RecordOptionType;
+  optionValue: number | null;
 }
 
-export enum RecordType {
+export enum RecordOptionType {
+  None = 'none',
   Medicine = 'medicine',
-  Food = 'Food',
-  Walk = 'Walk',
+  Food = 'food',
+  Walk = 'walk',
 }
 
 export interface SequenceChartData {

@@ -2,7 +2,7 @@ import * as React from 'react';
 import styles from './RecordList.module.scss';
 import IconSyringe from '../../components/icon/IconSyringe';
 import IconFood from '../../components/icon/IconFood';
-import { Record, RecordType } from '../../types/types';
+import { Record, RecordOptionType } from '../../types/types';
 import IconWalk from '../../components/icon/IconWalk';
 import dayjs from 'dayjs';
 import { getTextColorClass } from '../../commons/utility';
@@ -12,26 +12,26 @@ type RecordList = {
 };
 
 function RecordList(props: RecordList) {
-  const { data } = props;
+  const { data = [] } = props;
 
-  const getIconFromRecordType = (type: RecordType) => {
+  const getIconFromRecordType = (type: RecordOptionType) => {
     switch (type) {
-      case RecordType.Medicine:
+      case RecordOptionType.Medicine:
         return <IconSyringe />;
-      case RecordType.Food:
+      case RecordOptionType.Food:
         return <IconFood />;
-      case RecordType.Walk:
+      case RecordOptionType.Walk:
         return <IconWalk />;
     }
   };
 
-  const getIconTextFromRecordType = (type: RecordType) => {
+  const getIconTextFromRecordType = (type: RecordOptionType) => {
     switch (type) {
-      case RecordType.Medicine:
+      case RecordOptionType.Medicine:
         return '주사';
-      case RecordType.Food:
+      case RecordOptionType.Food:
         return '식사';
-      case RecordType.Walk:
+      case RecordOptionType.Walk:
         return '산책';
     }
   };
@@ -43,9 +43,9 @@ function RecordList(props: RecordList) {
         <div className={styles.blood_sugar_level}>
           <strong className={getTextColorClass(item.value)}>{item.value}</strong> mg/dl
         </div>
-        <div className={styles.icon}>{getIconFromRecordType(item.type)}</div>
-        <div className={styles.icon_name}>{getIconTextFromRecordType(item.type)}</div>
-        <div className={styles.value}>{item.text}</div>
+        <div className={styles.icon}>{getIconFromRecordType(item.optionType)}</div>
+        <div className={styles.icon_name}>{getIconTextFromRecordType(item.optionType)}</div>
+        <div className={styles.value}>{item.optionValue}</div>
       </li>
     ));
   };
