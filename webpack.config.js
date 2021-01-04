@@ -34,7 +34,7 @@ function makeConfig(mode) {
             {
               loader: 'sass-loader',
               options: {
-                additionalData: '@import "client/assets/global.scss";',
+                additionalData: '@import "client/assets/scss/global.scss";',
               },
             },
           ],

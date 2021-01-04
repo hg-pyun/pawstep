@@ -22,7 +22,7 @@ function Navigator(props: RouteComponentProps) {
     <div className={styles.wrap}>
       <div className={styles.item_button}>
         <button onClick={handleClickHomeButton}>
-          <IconHome />
+          <img src="../assets/img/home@2x.png" alt="home" />
         </button>
       </div>
       <div className={`${styles.item_button}`}>
@@ -32,7 +32,7 @@ function Navigator(props: RouteComponentProps) {
       </div>
       <div className={styles.item_button}>
         <button onClick={handleClickCalendarButton}>
-          <IconCalendar />
+          <img src="../assets/img/calendar@2x.png" alt="calendar" />
         </button>
       </div>
     </div>
