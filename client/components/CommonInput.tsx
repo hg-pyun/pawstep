@@ -10,12 +10,12 @@ function CommonInput(props: CommonInput) {
   const { label, ...inputProps } = props;
   const [isFocus, setIsFocus] = useState(false);
   return (
-    <>
+    <div className={styles.container}>
       {label && <label className={inputProps.required && styles.required}>{label}</label>}
       <div className={`${styles.input_box} ${isFocus && styles.focus}`}>
         <input {...inputProps} onFocus={() => setIsFocus(true)} onBlur={() => setIsFocus(false)} />
       </div>
-    </>
+    </div>
   );
 }
 
