@@ -11,18 +11,18 @@ type Home = {};
 
 function Home(props: Home) {
   const dummyData: Array<Record> = [
-    { date: new Date('2021-01-01 14:50:32'), value: 300, type: RecordType.Food, text: '메모를 길게 써 봅니다...' },
+    { date: new Date('2021-01-01T14:50:32'), value: 300, type: RecordType.Food, text: '메모를 길게 써 봅니다...' },
     {
-      date: new Date('2021-01-01 16:30:32'),
+      date: new Date('2021-01-01T16:30:32'),
       value: 150,
       type: RecordType.Medicine,
       text: '메모 메모 메모 메모 메모 메모 메모 메모 메모 메모 메모 메모',
     },
-    { date: new Date('2021-01-01 17:10:32'), value: 170, type: RecordType.Medicine, text: '메모' },
-    { date: new Date('2021-01-01 20:40:32'), value: 190, type: RecordType.Medicine, text: '메모' },
-    { date: new Date('2021-01-02 01:30:32'), value: 250, type: RecordType.Medicine, text: '메모' },
-    { date: new Date('2021-01-02 03:30:32'), value: 210, type: RecordType.Medicine, text: '메모' },
-    { date: new Date('2021-01-02 06:30:32'), value: 300, type: RecordType.Medicine, text: '메모' },
+    { date: new Date('2021-01-01T17:10:32'), value: 170, type: RecordType.Medicine, text: '메모' },
+    { date: new Date('2021-01-01T20:40:32'), value: 190, type: RecordType.Medicine, text: '메모' },
+    { date: new Date('2021-01-02T01:30:32'), value: 250, type: RecordType.Medicine, text: '메모' },
+    { date: new Date('2021-01-02T03:30:32'), value: 210, type: RecordType.Medicine, text: '메모' },
+    { date: new Date('2021-01-02T06:30:32'), value: 300, type: RecordType.Medicine, text: '메모' },
   ];
 
   return (
