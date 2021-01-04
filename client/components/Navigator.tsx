@@ -1,11 +1,9 @@
 import * as React from 'react';
 import styles from './Navigator.module.scss';
-import IconHome from './icon/IconHome';
 import IconPencil from './icon/IconPencil';
-import IconCalendar from './icon/IconCalendar';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
-
-type Navigator = {};
+import homeImage from '../assets/img/home@2x.png';
+import calendarImage from '../assets/img/calendar@2x.png';
 
 function Navigator(props: RouteComponentProps) {
   const { history } = props;
@@ -22,7 +20,7 @@ function Navigator(props: RouteComponentProps) {
     <div className={styles.wrap}>
       <div className={styles.item_button}>
         <button onClick={handleClickHomeButton}>
-          <img src="../assets/img/home@2x.png" alt="home" />
+          <img src={homeImage} alt="home" />
         </button>
       </div>
       <div className={`${styles.item_button}`}>
@@ -32,7 +30,7 @@ function Navigator(props: RouteComponentProps) {
       </div>
       <div className={styles.item_button}>
         <button onClick={handleClickCalendarButton}>
-          <img src="../assets/img/calendar@2x.png" alt="calendar" />
+          <img src={calendarImage} alt="calendar" />
         </button>
       </div>
     </div>
