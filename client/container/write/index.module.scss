@@ -4,6 +4,61 @@
 
   .form_item {
     margin-bottom: 20px;
+
+    .date_title {
+      margin-bottom: 10px;
+    }
+
+    &.half {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      .time {
+        width: 45%;
+      }
+    }
+  }
+
+  .options {
+    margin-top: 50px;
+    .options_title {
+      margin-bottom: 20px;
+    }
+  }
+
+  .radio_item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    label {
+      margin-left: 16px;
+      width: 100px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      .icon {
+        width: 50px;
+        text-align: center;
+        margin-right: 10px;
+      }
+
+      .icon_name {
+        width: 50px;
+        display: inline-block;
+      }
+    }
+
+    .input_box {
+      width: 50px;
+    }
+
+    .unit {
+      margin-left: 10px;
+      width: 50px;
+    }
   }
 }
 
@@ -15,47 +70,5 @@
     height: 54px;
     background-color: $primaryColorActive;
     color: white;
-  }
-}
-
-.options {
-  margin-top: 50px;
-  .options_title {
-    margin-bottom: 20px;
-  }
-}
-
-.radio_item {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-
-  label {
-    margin-left: 16px;
-    width: 100px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-
-    .icon {
-      width: 50px;
-      text-align: center;
-      margin-right: 10px;
-    }
-
-    .icon_name {
-      width: 50px;
-      display: inline-block;
-    }
-  }
-
-  .input_box {
-    width: 50px;
-  }
-
-  .unit {
-    margin-left: 10px;
-    width: 50px;
   }
 }

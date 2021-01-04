@@ -10,6 +10,11 @@ import IconSyringe from '../../components/icon/IconSyringe';
 function Index(props: RouteComponentProps) {
   const { history } = props;
 
+  const handleClickSubmitButton = () => {
+    // submit
+    history.goBack();
+  };
+
   const handleClickBackButton = () => {
     history.goBack();
   };
@@ -19,7 +24,18 @@ function Index(props: RouteComponentProps) {
       <HeaderSub onClickBackButton={handleClickBackButton} />
       <form className={styles.form}>
         <div className={styles.form_item}>
-          <CommonInput label={'시간'} placeholder={'2021-01-04 03:20'} />
+          <div className={styles.date_title}>
+            날짜
+          </div>
+          <input type={'date'}/>
+        </div>
+        <div className={`${styles.form_item} ${styles.half}`}>
+          <div className={styles.time}>
+            <CommonInput label={'시간(Hour)'} placeholder={'03'} />
+          </div>
+          <div className={styles.time}>
+            <CommonInput label={'분(Minute)'} placeholder={'20'} />
+          </div>
         </div>
         <div className={styles.form_item}>
           <CommonInput label={'혈당 (mg/dL)'} placeholder={'150'} />
@@ -31,7 +47,7 @@ function Index(props: RouteComponentProps) {
           <div>
             <div className={styles.form_item}>
               <div className={styles.radio_item}>
-                <input type="radio" id="none" name="category" />
+                <input type="radio" id="none" name="category" defaultChecked />
                 <label htmlFor="none">
                   <span>입력하지 않기</span>
                 </label>
@@ -85,8 +101,8 @@ function Index(props: RouteComponentProps) {
           </div>
         </div>
       </form>
-      <div className={styles.submit}>
-        <button>기록하기</button>
+      <div className={styles.submit} onClick={handleClickSubmitButton}>
+        <button type={'button'}>기록하기</button>
       </div>
     </>
   );
