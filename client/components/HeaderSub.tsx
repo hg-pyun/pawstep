@@ -1,18 +1,21 @@
 import * as React from 'react';
 import styles from './HeaderSub.module.scss';
-import IconBackArrow from './icon/IconBackArrow';
 
 type HeaderSub = {
-  onClickBackButton: any;
+  title?: string;
+  onClickCancelButton?: any;
+  onClickConfirmButton?: any;
 };
 
 function HeaderSub(props: HeaderSub) {
-  const { onClickBackButton } = props;
+  const { title, onClickCancelButton, onClickConfirmButton } = props;
   return (
     <div className={styles.container}>
-      <button onClick={onClickBackButton}>
-        <IconBackArrow />
-      </button>
+      <button onClick={onClickCancelButton}>취소</button>
+      <div className={styles.title}>
+        <span>{title}</span>
+      </div>
+      <button className={!onClickConfirmButton && styles.hide} onClick={onClickConfirmButton}>화인</button>
     </div>
   );
 }

@@ -3,6 +3,7 @@ export interface Record {
   value: number;
   optionType: RecordOptionType;
   optionValue: number | null;
+  memo?: string;
 }
 
 export enum RecordOptionType {

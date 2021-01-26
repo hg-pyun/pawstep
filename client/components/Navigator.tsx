@@ -1,11 +1,11 @@
 import * as React from 'react';
 import styles from './Navigator.module.scss';
-import IconPencil from './icon/IconPencil';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import ImgHome from '@/assets/img/home@2x.png';
 import ImgHomeGray from '@/assets/img/home_gray@2x.png';
 import ImgCalendar from '@/assets/img/calendar@2x.png';
 import ImgCalendarGray from '@/assets/img/calendar_gray@2x.png';
+import ImgPencil from '@/assets/img/pencil@2x.png';
 
 function Navigator(props: RouteComponentProps) {
   const { history, match } = props;
@@ -30,7 +30,7 @@ function Navigator(props: RouteComponentProps) {
       </div>
       <div className={`${styles.item_button}`}>
         <button className={styles.write_wrap} onClick={handleClickWriteButton}>
-          <IconPencil />
+          <img className={styles.write} src={ImgPencil} alt="write" />
         </button>
       </div>
       <div className={styles.item_button}>

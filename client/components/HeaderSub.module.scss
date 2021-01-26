@@ -1,12 +1,25 @@
 .container {
   display: flex;
-  align-items: center;
+  justify-content: space-between;
   height: 60px;
   padding: 0 23px;
+
+  .title {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 700;
+  }
 
   button {
     background: none;
     border: none;
     outline: none;
+    font-size: 18px;
+    font-weight: 900;
+
+    &.hide {
+      visibility: hidden;
+    }
   }
 }

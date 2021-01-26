@@ -15,7 +15,11 @@
 
 
       .date {
-        width: 20%;
+        width: 10%;
+      }
+
+      .time {
+        width: 15%
       }
 
       .blood_sugar_level {
@@ -35,11 +39,15 @@
       }
 
       .icon_name {
-        width: 20%;
+        width: 10%;
       }
 
       .value {
-        width: 20%;
+        width: 10%;
+      }
+
+      .memo {
+        width: 10%;
       }
     }
   }

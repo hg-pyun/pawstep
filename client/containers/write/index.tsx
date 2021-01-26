@@ -1,16 +1,17 @@
 import * as React from 'react';
 import { ChangeEvent, useState } from 'react';
 import styles from './index.module.scss';
-import HeaderSub from '../../components/HeaderSub';
+import HeaderSub from '@/components/HeaderSub';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
-import CommonInput from '../../components/CommonInput';
-import IconFood from '../../components/icon/IconFood';
-import IconWalk from '../../components/icon/IconWalk';
-import IconSyringe from '../../components/icon/IconSyringe';
+import CommonInput from '@/components/CommonInput';
+import IconFood from '@/components/icon/IconFood';
+import IconWalk from '@/components/icon/IconWalk';
+import IconSyringe from '@/components/icon/IconSyringe';
 import { useRecoilState } from 'recoil';
-import { recordState } from '../../store';
-import { Record, RecordOptionType } from '../../types/types';
+import { recordState } from '@/store';
+import { Record, RecordOptionType } from '@/types/types';
 import dayjs from 'dayjs';
+import ImgMemo from '@/assets/img/memo.png';
 
 function Index(props: RouteComponentProps) {
   const [recordList, setRecordList] = useRecoilState(recordState);
@@ -19,6 +20,7 @@ function Index(props: RouteComponentProps) {
   const [minute, setMinute] = useState('');
   const [value, setValue] = useState('');
   const [radio, setRadio] = useState(RecordOptionType.None);
+  const [memo, setMemo] = useState('');
 
   const [foodValue, setFoodValue] = useState('');
   const [medicineValue, setMedicineValue] = useState('');
@@ -58,6 +60,10 @@ function Index(props: RouteComponentProps) {
     setWalkValue(e.target.value);
   };
 
+  const handleChangeMemo = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    setMemo(e.target.value);
+  };
+
   const handleClickSubmitButton = () => {
     let optionValue = null;
 
@@ -78,6 +84,7 @@ function Index(props: RouteComponentProps) {
       value: Number(value),
       optionType: radio,
       optionValue: optionValue,
+      memo: memo,
     };
 
     const newRecordList = [...recordList, newRecord].sort((a, b) => b.date.getTime() - a.date.getTime());
@@ -85,13 +92,9 @@ function Index(props: RouteComponentProps) {
     history.goBack();
   };
 
-  const handleClickBackButton = () => {
-    history.goBack();
-  };
-
   return (
     <>
-      <HeaderSub onClickBackButton={handleClickBackButton} />
+      <HeaderSub title={'기록하기'} onClickCancelButton={() => history.goBack()} />
       <form className={styles.form}>
         <div className={styles.form_item}>
           <div className={styles.date_title}>날짜</div>
@@ -214,6 +217,13 @@ function Index(props: RouteComponentProps) {
               </div>
             </div>
           </div>
+        </div>
+        <div className={styles.memo}>
+          <div className={styles.memo_title}>
+            <img src={ImgMemo} alt="Memo" />
+            <span>메모</span>
+          </div>
+          <textarea value={memo} onChange={handleChangeMemo} />
         </div>
       </form>
       <div className={styles.submit} onClick={handleClickSubmitButton}>

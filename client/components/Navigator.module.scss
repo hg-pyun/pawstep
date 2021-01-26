@@ -18,12 +18,12 @@
   height: 100%;
 
   &.on {
-    border-bottom: 4px solid #2380EC;
+    border-bottom: 4px solid #2380ec;
 
     button {
       position: relative;
       top: 2px;
-    };
+    }
   }
 
   button {
@@ -37,6 +37,11 @@
     img {
       width: 48px;
       height: 48px;
+
+      &.write {
+        width: 24px;
+        height: 24px;
+      }
     }
   }
 
