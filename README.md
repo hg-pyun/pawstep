@@ -5,7 +5,7 @@ Pet blood glucose meter.
 ## How to Install
 
 ```sh
-& npm install
+$ npm install
 ```
 
 ## How to Dev
