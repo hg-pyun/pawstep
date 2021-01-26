@@ -2,10 +2,10 @@ import * as React from 'react';
 import styles from './Navigator.module.scss';
 import IconPencil from './icon/IconPencil';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
-import ImgHome from '../assets/img/home@2x.png';
-import ImgHomeGray from '../assets/img/home@2x.png';
-import ImgCalendar from '../assets/img/calendar@2x.png';
-import ImgCalendarGray from '../assets/img/calendar_gray@2x.png';
+import ImgHome from '@/assets/img/home@2x.png';
+import ImgHomeGray from '@/assets/img/home_gray@2x.png';
+import ImgCalendar from '@/assets/img/calendar@2x.png';
+import ImgCalendarGray from '@/assets/img/calendar_gray@2x.png';
 
 function Navigator(props: RouteComponentProps) {
   const { history, match } = props;
