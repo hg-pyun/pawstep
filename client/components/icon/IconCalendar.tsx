@@ -8,17 +8,17 @@ function IconCalendar(props: IconCalendar) {
       <path
         d="M36.7999 37H11.2V19.3V12.5H36.7999V37Z"
         stroke="black"
-        stroke-width="2"
+        strokeWidth="2"
         stroke-miterlimit="10"
         stroke-linejoin="round"
       />
-      <path d="M11 19.5H37" stroke="black" stroke-width="2" stroke-miterlimit="10" stroke-linejoin="round" />
-      <path d="M19.9 9V15" stroke="black" stroke-width="2" stroke-miterlimit="10" stroke-linejoin="round" />
-      <path d="M28.1 9V15" stroke="black" stroke-width="2" stroke-miterlimit="10" stroke-linejoin="round" />
+      <path d="M11 19.5H37" stroke="black" strokeWidth="2" stroke-miterlimit="10" stroke-linejoin="round" />
+      <path d="M19.9 9V15" stroke="black" strokeWidth="2" stroke-miterlimit="10" stroke-linejoin="round" />
+      <path d="M28.1 9V15" stroke="black" strokeWidth="2" stroke-miterlimit="10" stroke-linejoin="round" />
       <path
         d="M16 31L21 26L27 31L32 24"
         stroke="black"
-        stroke-width="2"
+        strokeWidth="2"
         stroke-miterlimit="10"
         stroke-linejoin="round"
       />

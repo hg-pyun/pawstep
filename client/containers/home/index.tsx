@@ -7,6 +7,8 @@ import RecordList from './RecordList';
 import RecentlyIndicator from './RecentlyIndicator';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { getRecentlyRecord, recordState } from '../../store';
+import Nodata from './Nodata';
+import StartIndicator from '@/containers/home/StartIndicator';
 
 type Home = {};
 
@@ -18,7 +20,13 @@ function Home(props: Home) {
     return (
       <div className={styles.container}>
         <Header />
-        <div>데이터를 등록해 주세요.</div>
+        <RecentlyIndicator recentlyRecord={recentlyRecord} />
+        <div>
+          <Nodata />
+        </div>
+        <div className={styles.start_indicator}>
+          <StartIndicator />
+        </div>
         <Navigator />
       </div>
     );

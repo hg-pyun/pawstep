@@ -57,6 +57,7 @@ function makeConfig(mode) {
     resolve: {
       extensions: ['.tsx', '.ts', '.js', 'json'],
       alias: {
+        '@': path.resolve(__dirname, 'client'),
         'react-dom': '@hot-loader/react-dom',
       },
     },

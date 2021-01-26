@@ -1,5 +1,6 @@
 import * as React from 'react';
 import styles from './Header.module.scss';
+import ImgProfile from '@/assets/img/profile.png';
 
 type Header = {};
 
@@ -10,7 +11,7 @@ function Header(props: Header) {
         <span className={styles.title}>Pawstep</span>
       </div>
       <div className={styles.profile}>
-        <img src='https://via.placeholder.com/35x35' />
+        <img src={ImgProfile}/>
       </div>
     </div>
   );

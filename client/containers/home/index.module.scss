@@ -3,4 +3,10 @@
   flex-direction: column;
   min-height: 100vh;
   padding-bottom: 60px;
+
+  .start_indicator {
+    width: 100%;
+    position: fixed;
+    bottom: 95px;
+  }
 }

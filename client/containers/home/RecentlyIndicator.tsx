@@ -11,24 +11,26 @@ type RecentlyIndicator = {
 function RecentlyIndicator(props: RecentlyIndicator) {
   const { recentlyRecord } = props;
 
-  if (recentlyRecord === undefined) {
-    return <></>;
-  }
-
   return (
     <div className={styles.container}>
       <div className={styles.item}>
-        <div>{dayjs(recentlyRecord.date).format('MMM DD YYYY')}</div>
-        <div className={styles.second_row}>
-          <strong>{dayjs(recentlyRecord.date).format('hh:mm A')}</strong>
-        </div>
-      </div>
-      <div className={styles.item}>
         <div>Last Check</div>
         <div className={styles.second_row}>
-          <strong className={getTextColorClass(recentlyRecord.value)}>{recentlyRecord.value}</strong>
+          {recentlyRecord ? (
+            <strong className={getTextColorClass(recentlyRecord.value)}>{recentlyRecord.value}</strong>
+          ) : (
+            <strong>-</strong>
+          )}
         </div>
       </div>
+      {recentlyRecord && (
+        <div className={styles.item}>
+          <div>{dayjs(recentlyRecord.date).format('MMM DD YYYY')}</div>
+          <div className={styles.second_row}>
+            <strong>{dayjs(recentlyRecord.date).format('hh:mm A')}</strong>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
