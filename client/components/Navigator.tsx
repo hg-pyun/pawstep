@@ -2,11 +2,13 @@ import * as React from 'react';
 import styles from './Navigator.module.scss';
 import IconPencil from './icon/IconPencil';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
-import homeImage from '../assets/img/home@2x.png';
-import calendarImage from '../assets/img/calendar@2x.png';
+import ImgHome from '../assets/img/home@2x.png';
+import ImgHomeGray from '../assets/img/home@2x.png';
+import ImgCalendar from '../assets/img/calendar@2x.png';
+import ImgCalendarGray from '../assets/img/calendar_gray@2x.png';
 
 function Navigator(props: RouteComponentProps) {
-  const { history } = props;
+  const { history, match } = props;
 
   const handleClickHomeButton = () => {};
 
@@ -16,11 +18,14 @@ function Navigator(props: RouteComponentProps) {
 
   const handleClickCalendarButton = () => {};
 
+  const isHome = match.path === '/';
+  const isCalendar = match.path === '/calendar';
+
   return (
     <div className={styles.wrap}>
       <div className={styles.item_button}>
         <button onClick={handleClickHomeButton}>
-          <img src={homeImage} alt="home" />
+          <img src={isHome ? ImgHome : ImgHomeGray} alt="home" />
         </button>
       </div>
       <div className={`${styles.item_button}`}>
@@ -30,7 +35,7 @@ function Navigator(props: RouteComponentProps) {
       </div>
       <div className={styles.item_button}>
         <button onClick={handleClickCalendarButton}>
-          <img src={calendarImage} alt="calendar" />
+          <img src={isCalendar ? ImgCalendar : ImgCalendarGray} alt="calendar" />
         </button>
       </div>
     </div>
