@@ -1,4 +1,5 @@
 export interface Record {
+  id: string;
   date: Date;
   value: number;
   optionType: RecordOptionType;

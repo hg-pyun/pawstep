@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import styles from './index.module.scss';
 import HeaderSub from '@/components/HeaderSub';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
@@ -12,8 +12,13 @@ import { recordState } from '@/store';
 import { Record, RecordOptionType } from '@/types/types';
 import dayjs from 'dayjs';
 import ImgMemo from '@/assets/img/memo.png';
+import { generateUUID } from '@/commons/utility';
 
-function Index(props: RouteComponentProps) {
+type Write = {
+  title: string;
+};
+
+function Index(props: Write & RouteComponentProps<{ id: string }>) {
   const [recordList, setRecordList] = useRecoilState(recordState);
   const [date, setDate] = useState(dayjs(new Date()).format('YYYY-MM-DD'));
   const [hour, setHour] = useState('');
@@ -26,7 +31,7 @@ function Index(props: RouteComponentProps) {
   const [medicineValue, setMedicineValue] = useState('');
   const [walkValue, setWalkValue] = useState('');
 
-  const { history } = props;
+  const { title, history, match } = props;
 
   const handleChangeDate = (e: ChangeEvent<HTMLInputElement>) => {
     setDate(e.target.value);
@@ -80,6 +85,7 @@ function Index(props: RouteComponentProps) {
     }
 
     const newRecord: Record = {
+      id: generateUUID(),
       date: new Date(`${date}T${hour}:${minute}`),
       value: Number(value),
       optionType: radio,
@@ -87,14 +93,52 @@ function Index(props: RouteComponentProps) {
       memo: memo,
     };
 
-    const newRecordList = [...recordList, newRecord].sort((a, b) => b.date.getTime() - a.date.getTime());
-    setRecordList(newRecordList);
+    let newRecordList;
+    if (match.params.id) {
+      const updateIndex = recordList.findIndex((item) => item.id === match.params.id);
+      newRecordList = [...recordList.slice(0, updateIndex), newRecord, ...recordList.slice(updateIndex + 1)];
+    } else {
+      newRecordList = [...recordList, newRecord];
+    }
+
+    const sortedList = newRecordList.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+    localStorage.setItem('pawstep-record', JSON.stringify(sortedList)); // TODO: Server가 도입되면 제거
+    setRecordList(sortedList);
     history.goBack();
   };
 
+  useEffect(() => {
+    if (match.params.id) {
+      const record = recordList.find((record) => record.id === match.params.id);
+      console.log(record);
+      setDate(dayjs(record.date).format('YYYY-MM-DD'));
+      setHour(dayjs(record.date).format('HH'));
+      setMinute(dayjs(record.date).format('mm'));
+      setValue(record.value.toString());
+
+      console.log(record.optionType);
+      setRadio(record.optionType);
+
+      switch (record.optionType) {
+        case RecordOptionType.Food:
+          setFoodValue(record.optionValue.toString());
+          break;
+        case RecordOptionType.Walk:
+          setWalkValue(record.optionValue.toString());
+          break;
+        case RecordOptionType.Medicine:
+          setMedicineValue(record.optionValue.toString());
+          break;
+      }
+
+      setMemo(record.memo);
+    }
+  }, []);
+
   return (
     <>
-      <HeaderSub title={'기록하기'} onClickCancelButton={() => history.goBack()} />
+      <HeaderSub title={title} onClickCancelButton={() => history.replace('/')} />
       <form className={styles.form}>
         <div className={styles.form_item}>
           <div className={styles.date_title}>날짜</div>
@@ -142,7 +186,7 @@ function Index(props: RouteComponentProps) {
                   name="category"
                   value={RecordOptionType.None}
                   onChange={handleChangeRadio}
-                  defaultChecked
+                  checked={radio === RecordOptionType.None}
                 />
                 <label htmlFor="none">
                   <span>입력하지 않기</span>
@@ -157,6 +201,7 @@ function Index(props: RouteComponentProps) {
                   name="category"
                   value={RecordOptionType.Food}
                   onChange={handleChangeRadio}
+                  checked={radio === RecordOptionType.Food}
                 />
                 <label htmlFor="food">
                   <span className={styles.icon}>
@@ -178,6 +223,7 @@ function Index(props: RouteComponentProps) {
                   name="category"
                   value={RecordOptionType.Medicine}
                   onChange={handleChangeRadio}
+                  checked={radio === RecordOptionType.Medicine}
                 />
                 <label htmlFor="medicine">
                   <span className={styles.icon}>
@@ -203,6 +249,7 @@ function Index(props: RouteComponentProps) {
                   name="category"
                   value={RecordOptionType.Walk}
                   onChange={handleChangeRadio}
+                  checked={radio === RecordOptionType.Walk}
                 />
                 <label htmlFor="walk">
                   <span className={styles.icon}>

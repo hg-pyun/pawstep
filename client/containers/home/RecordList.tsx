@@ -7,6 +7,7 @@ import IconWalk from '@/components/icon/IconWalk';
 import dayjs from 'dayjs';
 import { getTextColorClass } from '@/commons/utility';
 import ImgMemoPrimary from '@/assets/img/memo_primary.png';
+import { useHistory } from 'react-router-dom';
 
 type RecordList = {
   data: Array<Record>;
@@ -14,6 +15,7 @@ type RecordList = {
 
 function RecordList(props: RecordList) {
   const { data = [] } = props;
+  const history = useHistory();
 
   const getIconFromRecordType = (type: RecordOptionType) => {
     switch (type) {
@@ -46,11 +48,15 @@ function RecordList(props: RecordList) {
       case RecordOptionType.Walk:
         return '분';
     }
-  }
+  };
+
+  const handleClickRecordRow = (id: string) => {
+    history.push(`/write/${id}`);
+  };
 
   const renderItems = (list: Array<Record>) => {
     return list.map((item, index) => (
-      <li key={index}>
+      <li key={index} onClick={() => handleClickRecordRow(item.id)}>
         <div className={styles.date}>{dayjs(item.date).format('DD일')}</div>
         <div className={styles.time}>{dayjs(item.date).format('HH:mm A')}</div>
         <div className={styles.blood_sugar_level}>
@@ -58,7 +64,10 @@ function RecordList(props: RecordList) {
         </div>
         <div className={styles.icon}>{getIconFromRecordType(item.optionType)}</div>
         <div className={styles.icon_name}>{getIconTextFromRecordType(item.optionType)}</div>
-        <div className={styles.value}>{item.optionValue}{getUnitForm(item.optionType)}</div>
+        <div className={styles.value}>
+          {item.optionValue}
+          {getUnitForm(item.optionType)}
+        </div>
         <div className={styles.memo}>{item.memo && <img src={ImgMemoPrimary} alt="memo" />}</div>
       </li>
     ));
